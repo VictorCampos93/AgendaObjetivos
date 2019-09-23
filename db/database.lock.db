@@ -1,0 +1,6 @@
+#FileLock
+#Mon Sep 23 18:04:34 BRT 2019
+hostName=HSL221
+id=16d5ff0ae94776ddfbd94caaf9376c94d4ad7518666
+method=file
+server=10.0.7.197\:54470
