@@ -1,5 +1,6 @@
 package br.com.victorcampos.AgendaDeObjetivosVictor.Controller.controller;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,22 +14,29 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Long id;
 	
-	@JsonProperty
-	private String login;
+	@Embedded
+	private Credenciais credenciais;
 	
-	@JsonProperty
-	private String senha;
+	private String nome;
+	private Integer idade;
 
-	public Usuario(Integer id, String login, String senha) {
-		this.id = id;
-		this.login = login;
-		this.senha = senha;
+//	public Usuario(Integer id, Credenciais credenciais) {
+//		this.id = id;
+//		this.credenciais = credenciais;
+//	}
+	
+	public Usuario() {}
+	
+	public Usuario(String nome, Integer idade) {
+		this.nome = nome;
+		this.idade = idade;
 	}
 	
 	
-	
+	public String getNome() { return nome; }
 
+	public Integer getIdade() { return idade; }
 
 }

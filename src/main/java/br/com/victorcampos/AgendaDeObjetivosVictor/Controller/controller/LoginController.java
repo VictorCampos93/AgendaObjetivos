@@ -27,14 +27,13 @@ public class LoginController {
 	public ResponseEntity<String> validarLogin(@RequestBody Credenciais credenciais) {
 		// TODO Auto-generated method stub
 		
-		if(todosUsuarios.existe(credenciais.getLogin(), credenciais.getSenha()) == null) {
+		if(todosUsuarios.existe(credenciais) != null) {
 		
 			return ResponseEntity.ok("Sucesso");
 		
 		}
 		
 		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Erro");
-		
 		
 	}
 	

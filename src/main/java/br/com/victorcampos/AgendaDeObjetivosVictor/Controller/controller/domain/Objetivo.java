@@ -3,6 +3,7 @@ package br.com.victorcampos.AgendaDeObjetivosVictor.Controller.controller.domain
 import java.time.LocalDate;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,17 +25,22 @@ public class Objetivo {
 	@JsonProperty
 	private String descricao;
 	
+	@Embedded
+	@JsonProperty
+	private Prioridades prioridade;
+	
 	@Column(name = "data_maxima_para_execucao")
 	@JsonProperty
 	private LocalDate dataMaximaParaExecucao;
 	
 	public Objetivo() {}
 	
-	public Objetivo(String titulo, String descricao, LocalDate dataMaximaParaExecucao) {
+	public Objetivo(String titulo, String descricao, LocalDate dataMaximaParaExecucao, Prioridades prioridade) {
 		super();
 		this.titulo = titulo;
 		this.descricao = descricao;
 		this.dataMaximaParaExecucao = dataMaximaParaExecucao;
+		this.prioridade = prioridade;
 	}
 
 	@Override
